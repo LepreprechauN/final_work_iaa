@@ -23,6 +23,8 @@ DATA_DIR = '/content/drive/My Drive/Projects/ASHRAE/'
 ROOT_DIR = '/content/'
 
 # importing needed libraries
+
+#pandas is for datasets
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -33,6 +35,17 @@ from sklearn.model_selection import KFold
 import datetime
 import gc
 %pylab inline
+
+
+# importing the csv files from drive
+building_meta = pd.read_csv(DATA_DIR+'building_metadata.csv')
+weather = pd.read_csv(DATA_DIR+'weather_train.csv')
+train= pd.read_csv(DATA_DIR+'train.csv')
+
+# check nulls in weather data - weather is one of the key predictors of power consumption
+weather.isnull().sum()
+
+
 
 
 
